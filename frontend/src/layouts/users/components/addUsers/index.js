@@ -288,6 +288,172 @@
 // export default AddUsers;
 
 
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import Card from "@mui/material/Card";
+// import Button from "@mui/material/Button"; 
+// import IconButton from "@mui/material/IconButton";
+// import InputAdornment from "@mui/material/InputAdornment";
+// import Visibility from "@mui/icons-material/Visibility";
+// import VisibilityOff from "@mui/icons-material/VisibilityOff";
+// import ArgonBox from "components/ArgonBox";
+// import ArgonTypography from "components/ArgonTypography";
+// import ArgonInput from "components/ArgonInput";
+// import ArgonSelect from "components/ArgonSelect"; // Import your custom ArgonSelect component
+// import { getFirm, AddUser } from "api/apis";
+
+// function AddUsers() {
+//   const [name, setName] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const [contact, setContact] = useState('');
+//   const [address, setAddress] = useState('');
+//   const [firms, setFirms] = useState([]); // State for selected firms
+//   const [firmOptions, setFirmOptions] = useState([]); // State for fetched firms
+//   const [isSelectOpen, setIsSelectOpen] = useState(false); // State for controlling dropdown visibility
+
+//   // Fetch firms when the component mounts
+//   useEffect(() => {
+//     const fetchFirms = async () => {
+//       try {
+//         const response = await getFirm(); // Assuming this returns an array of firms
+//         setFirmOptions(response.firms[0]); // Set the fetched firms to state
+//       } catch (error) {
+//         console.error("Error fetching firms:", error);
+//       }
+//     };
+
+//     fetchFirms();
+//   }, []);
+
+//   // Prepare options for ArgonSelect
+//   const options = firmOptions.map(firm => ({
+//     value: firm.firm_id, // Assuming `firm` has an `id` field
+//     label: firm.firm_name,
+//   }));
+
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+    
+//     // Prepare data for submission
+//     const data = {
+//       name,
+//       email,
+//       password,
+//       contact,
+//       address,
+//       firmIds: firms, // Assuming `firms` contains IDs of selected firms
+//     };
+
+//     console.log('Submitting User Data:', data);
+    
+//     try {
+//       const result = await AddUser(data); // Call AddUser function
+//       console.log('User added successfully:', result);
+//       window.location.reload();
+//     } catch (error) {
+//       console.error('Error adding user:', error);
+//       // Handle error (e.g., show a message to the user)
+//     }
+//   };
+
+//   return (
+//     <Card id="add-user">
+//       <ArgonBox pt={3} px={2}>
+//         <ArgonTypography variant="h6" fontWeight="medium">
+//           Add User
+//         </ArgonTypography>
+//       </ArgonBox>
+
+//       {/* Form */}
+//       <ArgonBox component="form" role="form" onSubmit={handleSubmit} display="flex" flexDirection="column" p={2}>
+
+//         {/* Name */}
+//         <ArgonBox mb={2}>
+//           <ArgonInput
+//             placeholder="Name"
+//             value={name}
+//             onChange={(e) => setName(e.target.value)}
+//             size="large"
+//             required
+//           />
+//         </ArgonBox>
+
+//         {/* Email */}
+//         <ArgonBox mb={2}>
+//           <ArgonInput
+//             type="email"
+//             placeholder="Email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//             size="large"
+//             required
+//           />
+//         </ArgonBox>
+
+//         {/* Password */}
+//         <ArgonBox mb={2}>
+//           <ArgonInput
+//             type="password"
+//             placeholder="Password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             size="large"
+//             required
+//           />
+//         </ArgonBox>
+
+//         {/* Contact */}
+//         <ArgonBox mb={2}>
+//           <ArgonInput
+//             placeholder="Contact Number"
+//             value={contact}
+//             onChange={(e) => setContact(e.target.value)}
+//             size="large"
+//             required
+//           />
+//         </ArgonBox>
+
+//         {/* Address */}
+//         <ArgonBox mb={2}>
+//           <ArgonInput
+//             placeholder="Address"
+//             value={address}
+//             onChange={(e) => setAddress(e.target.value)}
+//             size="large"
+//             required
+//           />
+//         </ArgonBox>
+
+//         {/* Firms Multi-Select */}
+//         <ArgonBox mb={2}>
+//           <ArgonSelect
+//             options={options}
+//             isMulti
+//             onChange={(selectedOptions) => {
+//               setFirms(selectedOptions.map(option => option.value)); // Store the firm IDs
+//             }}
+//             menuIsOpen={isSelectOpen} // Keep the menu open
+//             onMenuOpen={() => setIsSelectOpen(true)} // Handle menu opening
+//             onMenuClose={() => setIsSelectOpen(false)} // Handle menu closing
+//             closeMenuOnSelect={false} // Prevent closing on select
+//           />
+//         </ArgonBox>
+
+//         {/* Submit Button */}
+//         <ArgonBox mt={2}>
+//           <Button variant="contained" color="primary" type="submit">
+//             Create
+//           </Button>
+//         </ArgonBox>
+//       </ArgonBox>
+//     </Card>
+//   );
+// }
+
+// export default AddUsers;
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from "@mui/material/Card";
@@ -299,7 +465,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonInput from "components/ArgonInput";
-import ArgonSelect from "components/ArgonSelect"; // Import your custom ArgonSelect component
+import ArgonSelect from "components/ArgonSelect";
 import { getFirm, AddUser } from "api/apis";
 
 function AddUsers() {
@@ -308,52 +474,67 @@ function AddUsers() {
   const [password, setPassword] = useState('');
   const [contact, setContact] = useState('');
   const [address, setAddress] = useState('');
-  const [firms, setFirms] = useState([]); // State for selected firms
-  const [firmOptions, setFirmOptions] = useState([]); // State for fetched firms
-  const [isSelectOpen, setIsSelectOpen] = useState(false); // State for controlling dropdown visibility
+  const [firms, setFirms] = useState([]);
+  const [firmOptions, setFirmOptions] = useState([]);
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); 
+  const [contactError, setContactError] = useState(''); 
 
   // Fetch firms when the component mounts
   useEffect(() => {
     const fetchFirms = async () => {
       try {
-        const response = await getFirm(); // Assuming this returns an array of firms
-        setFirmOptions(response.firms[0]); // Set the fetched firms to state
+        const response = await getFirm();
+        setFirmOptions(response.firms[0]);
       } catch (error) {
         console.error("Error fetching firms:", error);
       }
     };
-
     fetchFirms();
   }, []);
 
   // Prepare options for ArgonSelect
   const options = firmOptions.map(firm => ({
-    value: firm.firm_id, // Assuming `firm` has an `id` field
+    value: firm.firm_id,
     label: firm.firm_name,
   }));
 
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleContactChange = (e) => {
+    const input = e.target.value;
+    if (/^\d{0,10}$/.test(input)) { // Only allow digits and a maximum of 10 characters
+      setContact(input);
+      setContactError(''); // Clear error if valid
+    } else {
+      setContactError('Contact number must be 10 digits');
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    // Prepare data for submission
+    if (contact.length !== 10) {
+      setContactError('Contact number must be exactly 10 digits');
+      return;
+    }
+
     const data = {
       name,
       email,
       password,
       contact,
       address,
-      firmIds: firms, // Assuming `firms` contains IDs of selected firms
+      firmIds: firms,
     };
 
-    console.log('Submitting User Data:', data);
-    
     try {
-      const result = await AddUser(data); // Call AddUser function
+      const result = await AddUser(data);
       console.log('User added successfully:', result);
       window.location.reload();
     } catch (error) {
       console.error('Error adding user:', error);
-      // Handle error (e.g., show a message to the user)
     }
   };
 
@@ -365,7 +546,6 @@ function AddUsers() {
         </ArgonTypography>
       </ArgonBox>
 
-      {/* Form */}
       <ArgonBox component="form" role="form" onSubmit={handleSubmit} display="flex" flexDirection="column" p={2}>
 
         {/* Name */}
@@ -391,15 +571,22 @@ function AddUsers() {
           />
         </ArgonBox>
 
-        {/* Password */}
+        {/* Password with visibility toggle */}
         <ArgonBox mb={2}>
           <ArgonInput
-            type="password"
+            type={showPassword ? "text" : "password"} // Toggle password visibility
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             size="large"
             required
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton onClick={handlePasswordVisibility} edge="end">
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
           />
         </ArgonBox>
 
@@ -408,10 +595,16 @@ function AddUsers() {
           <ArgonInput
             placeholder="Contact Number"
             value={contact}
-            onChange={(e) => setContact(e.target.value)}
+            onChange={handleContactChange}
             size="large"
             required
+            error={!!contactError}
           />
+          {contactError && (
+            <ArgonTypography color="error" variant="caption">
+              {contactError}
+            </ArgonTypography>
+          )}
         </ArgonBox>
 
         {/* Address */}
@@ -431,12 +624,13 @@ function AddUsers() {
             options={options}
             isMulti
             onChange={(selectedOptions) => {
-              setFirms(selectedOptions.map(option => option.value)); // Store the firm IDs
+              setFirms(selectedOptions.map(option => option.value));
             }}
-            menuIsOpen={isSelectOpen} // Keep the menu open
-            onMenuOpen={() => setIsSelectOpen(true)} // Handle menu opening
-            onMenuClose={() => setIsSelectOpen(false)} // Handle menu closing
-            closeMenuOnSelect={false} // Prevent closing on select
+            menuIsOpen={isSelectOpen}
+            onMenuOpen={() => setIsSelectOpen(true)}
+            onMenuClose={() => setIsSelectOpen(false)}
+            closeMenuOnSelect={false}
+            placeholder="Select Firm"
           />
         </ArgonBox>
 

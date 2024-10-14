@@ -1,78 +1,9 @@
-// import axios from "axios";
-// import { apiUrl } from "api/apiUrl";
-// import { Auth } from "auth";
-
-// export const userId = Auth.getUserId();
-// export const roleId = Auth.getUserRole();
-
-// console.log('User ID:', userId, 'Role ID:', roleId);
-
-// export const Register = async (name, email, password) => {
-//     console.log('Registering with:', name, email, password);
-//     try {
-//         const response = await axios.post(`${apiUrl}/register`, {
-//             name,
-//             email,
-//             Password: password,
-//         });
-//         return response.data; 
-//     } catch (error) {
-//         console.error('Error registering:', error);
-//         throw error;
-//     }
-// };
-
-// export const CreateFirm = async (firmData) => {
-//     try {
-//         const response = await axios.post(`${apiUrl}/addFirm/${userId}`, firmData);
-//         console.log('Firm creation response:', response);
-//         return response.data.message;
-//     } catch (error) {
-//         console.error('Error creating firm:', error);
-//         throw error;
-//     }
-// };
-
-// export const getFirm = async () => {
-//     try {
-//         const response = await axios.get(`${apiUrl}/Get_All_Firm/${userId}`);
-//         console.log('Fetched firms:', response.data); 
-//         return response.data; 
-//     } catch (error) {
-//         console.error('Error fetching firm:', error);
-//         throw error;
-//     }
-// };
-
-// export const EditFirm = async (firmId, firmData) => {
-//     try {
-//         console.log('data',firmData)
-//         const response = await axios.put(`${apiUrl}/Edit_Firm/${userId}/${firmId}`, firmData);
-//         console.log('Firm edit response:', response);
-//         return response.data; 
-//     } catch (error) {
-//         console.error('Error editing firm:', error);
-//         throw error;
-//     }
-// };
-
-// export const DeleteFirm = async (firmId) => {
-//     try {
-//         console.log('fir',firmId)
-//         const response = await axios.delete(`${apiUrl}/Delete_Firm/${userId}/${firmId}`);
-//         console.log('Firm delete response:', response);
-//         return response.data;
-//     } catch (error) {
-//         console.error('Error deleting firm:', error);
-//         throw error;
-//     }
-// };
-
 // api.js
 
 import axios from "axios";
 import { apiUrl } from "api/apiUrl";
 
+// Register
 export const Register = async (name, email, password) => {
     console.log('Registering with:', name, email, password);
     try {
@@ -88,6 +19,7 @@ export const Register = async (name, email, password) => {
     }
 };
 
+// Firm
 export const CreateFirm = async (firmData) => {
     const userId = localStorage.getItem('userId'); 
     try {
@@ -138,6 +70,7 @@ export const DeleteFirm = async (firmId) => {
     }
 };
 
+// General Ledger
 export const getGL = async () => {
     try {
         const response = await axios.get(`${apiUrl}/Get_All_Gl_Ledger`);
@@ -149,6 +82,7 @@ export const getGL = async () => {
     }
 };
 
+// Ledger
 export const CreateLedger = async (ledgerData) => {
     const userId = localStorage.getItem('userId'); 
     console.log('data',ledgerData)
@@ -200,7 +134,7 @@ export const DeleteLedger = async (ledgerId) => {
     }
 };
 
-
+// User
 export const AddUser = async (data) => {
     const userId = localStorage.getItem('userId');
     console.log('Add User:', data);
@@ -248,6 +182,147 @@ export const DeleteUser = async (id) => {
         return response.data;
     } catch (error) {
         console.error('Error deleting user:', error);
+        throw error;
+    }
+};
+
+// Payment
+
+export const getLedgerForTransaction = async () => {
+    const userId = localStorage.getItem('userId'); 
+    try {
+        const response = await axios.get(`${apiUrl}/Get_All_ledgers_For_Transaction/${userId}`);
+        console.log('Fetched ledgers for payment:', response.data.ledgers);
+        return response.data.ledgers; 
+    } catch (error) {
+        console.error('Error fetching ledgers for payment:', error);
+        throw error;
+    }
+};
+
+export const getUserLedger = async () => {
+    const userId = localStorage.getItem('userId'); 
+    try {
+        const response = await axios.get(`${apiUrl}/Get_Ledgers_For_Users/${userId}`);
+        console.log('Fetched user ledgers:', response.data);
+        return response.data; 
+    } catch (error) {
+        console.error('Error fetching user ledgers:', error);
+        throw error;
+    }
+};
+
+export const makePayment = async (data) => {
+    const userId = localStorage.getItem('userId');
+    console.log('Make Payment:', data);
+    try {
+        const response = await axios.post(`${apiUrl}/Transactions/${userId}`, data);
+        return response.data; 
+    } catch (error) {
+        console.error('Error making payment:', error);
+        throw error;
+    }
+};
+
+export const getTransactions = async (firmId, transaction_type) => {
+    console.log('api', firmId, transaction_type)
+    const userId = localStorage.getItem('userId'); 
+    try {
+        const response = await axios.get(`${apiUrl}/Get_Transactions_From_Firm/${firmId}/${transaction_type}`);
+        console.log('Fetched transactions for payment:', response.data);
+        return response.data; 
+    } catch (error) {
+        console.error('Error fetching transactions for payment:', error);
+        throw error;
+    }
+};
+
+export const getCompleteReport = async () => {
+    const userId = localStorage.getItem('userId');
+    console.log('user', userId) 
+    try {
+        const response = await axios.get(`${apiUrl}/Get_Complete_Report/${userId}`);
+        console.log('Fetched complete report:', response);
+        return response.data; 
+    } catch (error) {
+        console.error('Error fetching complete report:', error);
+        throw error;
+    }
+};
+
+
+export const getProfileDetails = async () => {
+    const userId = localStorage.getItem('userId');
+    console.log('user', userId) 
+    try {
+        const response = await axios.get(`${apiUrl}/Get_User_Info/${userId}`);
+        console.log('Fetched profile:', response);
+        return response.data; 
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        throw error;
+    }
+};
+
+export const EditProfile = async (data) => {
+    const userId = localStorage.getItem('userId');
+    try {
+        console.log('data', data);
+        const response = await axios.put(`${apiUrl}/Edit_User/${userId}`, data);
+        console.log('User edit response:', response);
+        return response.data; 
+    } catch (error) {
+        console.error('Error editing User:', error);
+        throw error;
+    }
+};
+
+// Dashboard
+
+export const getWeeklyTransactionAdmin = async () => {
+    const userId = localStorage.getItem('userId');
+    try {
+        const response = await axios.get(`${apiUrl}/Get_WeeklyDaily_Trans_For_Admin/${userId}`);
+        console.log('Fetched weekly transactions:', response);
+        return response.data; 
+    } catch (error) {
+        console.error('Error fetching weekly transactions:', error);
+        throw error;
+    }
+};
+
+export const getWeeklyTransactionUser = async () => {
+    const userId = localStorage.getItem('userId');
+    try {
+        const response = await axios.get(`${apiUrl}/Get_WeeklyDaily_Trans_For_User/${userId}`);
+        console.log('Fetched weekly transactions:', response);
+        return response.data; 
+    } catch (error) {
+        console.error('Error fetching weekly transactions:', error);
+        throw error;
+    }
+};
+
+export const getAllFirmTransactionAdmin = async () => {
+    const userId = localStorage.getItem('userId');
+    try {
+        const response = await axios.get(`${apiUrl}/Get_FirmWise_Trans_For_Admin/${userId}`);
+        console.log('Fetched transactions:', response);
+        return response.data; 
+    } catch (error) {
+        console.error('Error fetching transactions:', error);
+        throw error;
+    }
+};
+
+export const getAllFirmTransactionUser = async () => {
+    const userId = localStorage.getItem('userId');
+    try {
+        const response = await axios.get(`${apiUrl}/Get_FirmWise_Trans_For_User/${userId}`);
+        console.log('Fetched transactions:', response);
+        return response.data; 
+    } catch (error) {
+        console.error('Error fetching transactions:', error);
         throw error;
     }
 };

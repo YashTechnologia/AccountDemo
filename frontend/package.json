@@ -1,15 +1,11 @@
 {
-  "name": "argon-dashboard-mui",
+  "name": "tekhno-accounting",
   "version": "3.0.1",
-  "author": "Creative Tim",
-  "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
-  "description": "React version of Argon Dashboard 2 by Creative Tim",
+  "author": "Tekhnologia",
+  "license": "",
+  "description": "React version of Tekhno Accounting created by Tekhnologia",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/argon-dashboard-material-ui/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/creativetimofficial/argon-dashboard-material-ui.git"
+    "url": "http://localhost:3001"
   },
   "dependencies": {
     "@emotion/cache": "11.11.0",

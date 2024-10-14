@@ -191,40 +191,49 @@
 
 
 import React, { useState, useEffect } from "react";
-
-// @mui material components
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import Icon from "@mui/material/Icon";
-
-// Argon Dashboard 2 MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
-import ArgonDialog from "components/ArgonDialog"; // Import ArgonDialog
-
-// Argon Dashboard 2 MUI example components
+import ArgonDialog from "components/ArgonDialog";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-
-// Argon Dashboard 2 MUI base styles
 import breakpoints from "assets/theme/base/breakpoints";
 import ArgonInput from "components/ArgonInput";
 import ArgonButton from "components/ArgonButton";
+import { getProfileDetails, EditProfile } from "api/apis";
 
 function Header() {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
-    name: "Alex Thompson",
-    email: "alex.thompson@example.com",
-    contact: "+1234567890",
-    address: "123 Street, City",
+    name: "",
+    email: "",
+    contact: "",
+    address: "",
   });
 
-  // Dialog state
   const [openDialog, setOpenDialog] = useState(false);
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await getProfileDetails();
+        const userData = response.user[0];
+        setProfile({
+          name: userData.userName,
+          email: userData.userEmail,
+          contact: userData.userContact || "",
+          address: userData.userAddress || "",
+        });
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
+    fetch();
+  }, []);
 
   useEffect(() => {
     function handleTabsOrientation() {
@@ -241,20 +250,46 @@ function Header() {
 
   const handleEditClick = () => {
     setIsEditing(true);
-    setOpenDialog(true); // Open dialog when edit is clicked
+    setOpenDialog(true);
   };
 
-  const handleCloseDialog = () => {
-    setIsEditing(false);
-    setOpenDialog(false); // Close the dialog
+  const handleCloseDialog = async () => {
+    try {
+      const userData = {
+        userName: profile.name,
+        userEmail: profile.email,
+        userContact: profile.contact,
+        userAddress: profile.address,
+      };
+
+      // Call the EditProfile API with the constructed data
+      const response = await EditProfile(userData);
+      console.log('Edit Profile response:', response);
+
+      // Close the dialog and reset editing state
+      setIsEditing(false);
+      setOpenDialog(false);
+    } catch (error) {
+      console.error("Error saving profile changes:", error);
+    }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProfile((prevProfile) => ({
-      ...prevProfile,
-      [name]: value,
-    }));
+
+    if (name === "contact") {
+      if (/^\d{0,10}$/.test(value)) {
+        setProfile((prevProfile) => ({
+          ...prevProfile,
+          [name]: value,
+        }));
+      }
+    } else {
+      setProfile((prevProfile) => ({
+        ...prevProfile,
+        [name]: value,
+      }));
+    }
   };
 
   return (
@@ -262,21 +297,14 @@ function Header() {
       <DashboardNavbar absolute light />
       <ArgonBox height="220px" />
       <Card
-        // sx={{
-        //   py: 3,
-        //   px: 2,
-        //   boxShadow: ({ boxShadows: { md } }) => md,
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        // }}
         sx={{
           py: 3,
           px: 2,
-          maxWidth: '800px', // Limit the maximum width of the card
+          maxWidth: '800px',
           boxShadow: ({ boxShadows: { md } }) => md,
           display: 'flex',
           justifyContent: 'center',
-          margin: 'auto', // Center the card horizontally
+          margin: 'auto',
         }}
       >
         <Grid container spacing={3} alignItems="center" justifyContent="center">
@@ -285,7 +313,6 @@ function Header() {
               <Grid container spacing={2} direction="column" alignItems="center">
                 <Grid item>
                   <Grid container alignItems="center" spacing={1}>
-                    {/* Profile Name with Edit Icon */}
                     <Grid item>
                       <ArgonTypography variant="h5" fontWeight="medium">
                         {profile.name}
@@ -300,7 +327,6 @@ function Header() {
                     </Grid>
                   </Grid>
                 </Grid>
-
                 <Grid item>
                   <ArgonTypography variant="body1" align="center">
                     {profile.email}
@@ -361,6 +387,7 @@ function Header() {
             value={profile.contact}
             onChange={handleChange}
             variant="outlined"
+            inputProps={{ maxLength: 10 }} // Optional: To restrict input length
           />
         </ArgonBox>
         <ArgonBox mb={2}>

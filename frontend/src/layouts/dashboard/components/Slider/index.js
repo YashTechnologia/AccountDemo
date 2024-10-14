@@ -17,9 +17,13 @@ import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 
 // Images
-import bg1 from "assets/images/img-2.jpg";
-import bg2 from "assets/images/img-1.jpg";
-import bg3 from "assets/images/img-3.jpg";
+// import bg1 from "assets/images/img-2.jpg";
+// import bg2 from "assets/images/img-1.jpg";
+// import bg3 from "assets/images/img-3.jpg";
+
+import bg1 from "assets/images/bgimage1.jpg";
+import bg2 from "assets/images/bgimage2.jpg";
+import bg3 from "assets/images/bgimage3.jpg";
 
 function Slider() {
   // install SwiperJS modules
@@ -118,11 +122,10 @@ function Slider() {
                 </ArgonTypography>
               </ArgonBox>
               <ArgonTypography variant="h5" color="white" mb={0.5}>
-                Get started with Argon
+                This is Tekhno Accounting
               </ArgonTypography>
               <ArgonTypography variant="body2" color="white">
-                There&apos;s nothing I really wanted to do in life that I wasn&apos;t able to get
-                good at.
+                This is the best website for maintaining your Accounts.
               </ArgonTypography>
             </ArgonBox>
           </ArgonBox>
@@ -153,11 +156,10 @@ function Slider() {
                 </ArgonTypography>
               </ArgonBox>
               <ArgonTypography variant="h5" color="white" mb={0.5}>
-                Faster way to create web pages
+                Faster way to make your transactions.
               </ArgonTypography>
               <ArgonTypography variant="body2" color="white">
-                That&apos;s my skill. I&apos;m not really specifically talented at anything except
-                for the ability to learn.
+                Best way to track your Transactions.
               </ArgonTypography>
             </ArgonBox>
           </ArgonBox>
@@ -188,7 +190,7 @@ function Slider() {
                 </ArgonTypography>
               </ArgonBox>
               <ArgonTypography variant="h5" color="white" mb={0.5}>
-                Share with us your design tips!
+                Share with us your tips!
               </ArgonTypography>
               <ArgonTypography variant="body2" color="white">
                 Don&apos;t be afraid to be wrong because you can&apos;t learn anything from a

@@ -26,6 +26,7 @@ function Cover() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [passwordError, setPasswordError] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {

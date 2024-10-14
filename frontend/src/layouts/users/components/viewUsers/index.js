@@ -160,6 +160,10 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonInput from "components/ArgonInput";
@@ -181,6 +185,7 @@ function ViewUsers() {
   const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
   const [selectedFirm, setSelectedFirm] = useState(null);
+  const [showPassword, setShowPassword] = useState(false); // Password visibility state
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -224,7 +229,11 @@ function ViewUsers() {
 
   const handleFirmChange = (option) => {
     setSelectedFirm(option.value);
-    setSelectedUser({ ...selectedUser, FirmId: option.value });
+    // setSelectedUser({ ...selectedUser, FirmId: option.value });
+  };
+
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const handleCloseDialog = () => {
@@ -243,7 +252,7 @@ function ViewUsers() {
           address: selectedUser.UserAddress,
           newFirmId: selectedFirm, // Use the selected firm ID from the dropdown
         };
-
+        console.log('u', selectedUser)
         const response = await EditUser(selectedUser.UserId, selectedUser.FirmId, userData);
         console.log('User edit response:', response);
 
@@ -253,6 +262,7 @@ function ViewUsers() {
           )
         );
         handleCloseDialog();
+        window.location.reload();
       } catch (error) {
         console.error('Error editing user:', error);
       }
@@ -351,20 +361,45 @@ function ViewUsers() {
             <ArgonBox mb={2}>
               <ArgonTypography variant="h6">Password</ArgonTypography>
               <ArgonInput
+                type={showPassword ? "text" : "password"}
                 label="Password"
                 value={selectedUser.UserPassword}
                 onChange={(e) => setSelectedUser({ ...selectedUser, UserPassword: e.target.value })}
                 fullWidth
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton onClick={handlePasswordVisibility} edge="end">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
               />
             </ArgonBox>
 
-            <ArgonBox mb={2}>
+            {/* <ArgonBox mb={2}>
               <ArgonTypography variant="h6">Contact</ArgonTypography>
               <ArgonInput
                 label="Contact"
                 value={selectedUser.UserContact}
                 onChange={(e) => setSelectedUser({ ...selectedUser, UserContact: e.target.value })}
                 fullWidth
+              />
+            </ArgonBox> */}
+
+            <ArgonBox mb={2}>
+              <ArgonTypography variant="h6">Contact</ArgonTypography>
+              <ArgonInput
+                label="Contact"
+                value={selectedUser.UserContact}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  // Only allow numbers and limit the length to 10 digits
+                  if (/^\d{0,10}$/.test(value)) {
+                    setSelectedUser({ ...selectedUser, UserContact: value });
+                  }
+                }}
+                fullWidth
+                inputProps={{ maxLength: 10 }} // Ensure max length is 10
               />
             </ArgonBox>
 

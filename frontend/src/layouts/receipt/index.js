@@ -9,7 +9,7 @@ import MakeReceipt from "layouts/receipt/components/MakeReceipt";
 import Transactions from "layouts/receipt/components/Transactions";
 import { Grid } from "@mui/material";
 
-function Payment() {
+function Receipt() {
 
 
     return (
@@ -18,10 +18,10 @@ function Payment() {
             <ArgonBox mt={4}>
                 <ArgonBox mb={3}>
                     <Grid container spacing={3}>
-                        <Grid item xs={12} md={7}>
+                        <Grid item xs={12} md={6}>
                             <MakeReceipt />
                         </Grid>
-                        <Grid item xs={12} md={5}>
+                        <Grid item xs={12} md={6}>
                             <Transactions />
                         </Grid>
                     </Grid>
@@ -31,4 +31,4 @@ function Payment() {
     );
 }
 
-export default Payment;
+export default Receipt;

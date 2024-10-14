@@ -194,7 +194,7 @@ function Illustration() {
       })
       .catch((error) => {
         console.error("Login error:", error);
-        // You may want to set an error message for the user here
+        alert(error.response.data.error)
       });
   };
 

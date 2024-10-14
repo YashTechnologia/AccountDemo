@@ -259,9 +259,24 @@ function DashboardNavbar({ absolute, light, isMini }) {
   // Add state for user avatar
   const [userAvatar, setUserAvatar] = useState("path/to/user/avatar.jpg"); // Replace with actual path or state
 
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    if (savedDarkMode) {
+      setDarkMode(dispatch, JSON.parse(savedDarkMode));
+      setDarkSidenav(dispatch, JSON.parse(savedDarkMode));
+    }
+  }, [dispatch]);
+
+  // const handleDarkMode = () => {
+  //   setDarkSidenav(dispatch, !darkMode);
+  //   setDarkMode(dispatch, !darkMode);
+  // };
+
   const handleDarkMode = () => {
-    setDarkSidenav(dispatch, !darkMode);
-    setDarkMode(dispatch, !darkMode);
+    const newDarkMode = !darkMode;
+    setDarkSidenav(dispatch, newDarkMode);
+    setDarkMode(dispatch, newDarkMode);
+    localStorage.setItem("darkMode", JSON.stringify(newDarkMode)); // Save the value in localStorage
   };
 
   useEffect(() => {
@@ -387,7 +402,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 sx={navbarIconButton}
                 href="/profile"
               >
-                <Avatar src={userAvatar} alt="User Avatar" /> {/* Display user avatar */}
+                <Avatar src={userAvatar} /> {/* alt="User Avatar" */}
               </IconButton>
             </ArgonBox>
           </ArgonBox>
