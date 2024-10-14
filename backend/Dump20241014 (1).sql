@@ -66,7 +66,7 @@ CREATE TABLE `tbl_firm` (
   `updated_by` varchar(50) DEFAULT NULL,
   `firm_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`firm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +75,7 @@ CREATE TABLE `tbl_firm` (
 
 LOCK TABLES `tbl_firm` WRITE;
 /*!40000 ALTER TABLE `tbl_firm` DISABLE KEYS */;
-INSERT INTO `tbl_firm` VALUES (30,' Fulchand  grp','adity@gmail.com','2369891','djuyeuoiu89y983hduhuhuhduwywhh','2024-10-11 09:18:20','45','2024-10-11 09:18:20',NULL,1),(31,'Tekhnologia Innovations India Pvt Ltd','tekhnologia@gmail.com','tekhno123456','Pune','2024-10-11 09:20:47','18','2024-10-11 09:20:47',NULL,1),(32,'Happy Faces','happyfaces@gmail.com','happy123456','Washim','2024-10-11 09:21:51','18','2024-10-11 09:21:51',NULL,1);
+INSERT INTO `tbl_firm` VALUES (33,'ABC','abs@gmail.com','de24referf','dederf','2024-10-14 09:51:22','18','2024-10-14 09:51:22',NULL,1),(34,'xyz','xyz@gmail.com','fjerhue6454','wdekofkroepkg','2024-10-14 09:54:44','18','2024-10-14 09:54:44',NULL,1);
 /*!40000 ALTER TABLE `tbl_firm` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `tbl_ledger` (
   `updated_by` varchar(50) DEFAULT NULL,
   `ledger_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`lgr_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `tbl_ledger` (
 
 LOCK TABLES `tbl_ledger` WRITE;
 /*!40000 ALTER TABLE `tbl_ledger` DISABLE KEYS */;
-INSERT INTO `tbl_ledger` VALUES (13,7,'Rupesh Khillare',992000.00,31,1,'2024-10-11 09:22:40','18','2024-10-11 11:44:53',NULL,1),(14,5,'Dilip Heda',2008000.00,32,0,'2024-10-11 09:23:41','18','2024-10-11 11:44:53',NULL,1);
+INSERT INTO `tbl_ledger` VALUES (13,7,'Rupesh Khillare',992000.00,31,1,'2024-10-11 09:22:40','18','2024-10-11 11:44:53',NULL,1),(14,5,'Dilip Heda',2008000.00,32,0,'2024-10-11 09:23:41','18','2024-10-11 11:44:53',NULL,1),(15,2,'labc',22500.00,33,1,'2024-10-14 09:55:16','18','2024-10-14 11:45:09',NULL,1),(16,3,'lxyz',12500.00,34,0,'2024-10-14 09:55:33','18','2024-10-14 11:45:09',NULL,1);
 /*!40000 ALTER TABLE `tbl_ledger` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +179,7 @@ CREATE TABLE `tbl_transactions` (
   `updated_by` varchar(50) DEFAULT NULL,
   `trans_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`trans_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +188,7 @@ CREATE TABLE `tbl_transactions` (
 
 LOCK TABLES `tbl_transactions` WRITE;
 /*!40000 ALTER TABLE `tbl_transactions` DISABLE KEYS */;
-INSERT INTO `tbl_transactions` VALUES (91,49,14,32,50000.00,'2024-10-14 09:29:04',NULL,'2024-10-14 06:13:17',NULL,1),(92,49,13,31,-50000.00,'2024-10-14 09:29:04',NULL,'2024-10-14 06:13:17',NULL,1),(93,50,13,31,50000.00,'2024-10-14 09:30:53',NULL,'2024-10-14 06:13:17',NULL,1),(94,50,14,32,-50000.00,'2024-10-14 09:30:53',NULL,'2024-10-14 06:13:17',NULL,1),(95,51,14,32,8000.00,'2024-10-14 11:44:53',NULL,'2024-10-14 06:13:17',NULL,1),(96,51,13,31,-8000.00,'2024-10-14 11:44:53',NULL,'2024-10-14 06:13:17',NULL,1);
+INSERT INTO `tbl_transactions` VALUES (97,52,16,34,5000.00,'2024-10-14 09:58:11',NULL,'2024-10-14 09:58:11',NULL,1),(98,52,15,33,-5000.00,'2024-10-14 09:58:11',NULL,'2024-10-14 09:58:11',NULL,1),(99,53,15,33,2000.00,'2024-10-14 11:20:26',NULL,'2024-10-14 11:20:26',NULL,1),(100,53,16,34,-2000.00,'2024-10-14 11:20:26',NULL,'2024-10-14 11:20:26',NULL,1),(101,54,15,33,500.00,'2024-10-14 11:45:09',NULL,'2024-10-14 11:45:09',NULL,1),(102,54,16,34,-500.00,'2024-10-14 11:45:09',NULL,'2024-10-14 11:45:09',NULL,1);
 /*!40000 ALTER TABLE `tbl_transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +213,7 @@ CREATE TABLE `tbl_user` (
   `updated_by` varchar(50) DEFAULT NULL,
   `user_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,7 +222,7 @@ CREATE TABLE `tbl_user` (
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
-INSERT INTO `tbl_user` VALUES (18,'admin','admin@admin.com','admin123','7897451231','Pune',1,'2024-10-11 09:07:39',NULL,'2024-10-11 11:33:12',NULL,1),(19,'Yash','yash@gmail.com','user@123','1235469870','Pune',2,'2024-10-11 09:24:49','18','2024-10-11 09:24:49',NULL,1),(20,'Vijay','vijay@gmail.com','user@123','4546789753','Pune',2,'2024-10-11 09:25:16','18','2024-10-11 09:25:16',NULL,1),(21,'vvvv','vvv','hyjt','3333','vvvv',1,'2024-10-11 11:23:51',NULL,'2024-10-11 11:26:38',NULL,1),(22,'random','ndjk@gmail.com','hnjjsnjkhwu',NULL,NULL,1,'2024-10-14 04:56:07',NULL,'2024-10-14 04:56:07',NULL,1),(23,'random','ndk@gmail.com','hnjjsnjkhwu',NULL,NULL,1,'2024-10-14 05:06:26',NULL,'2024-10-14 05:06:26',NULL,1);
+INSERT INTO `tbl_user` VALUES (18,'admin','admin@admin.com','admin123','7897451231','Pune',1,'2024-10-11 09:07:39',NULL,'2024-10-11 11:33:12',NULL,1),(19,'Yash','yash@gmail.com','user@123','1235469870','Pune',2,'2024-10-11 09:24:49','18','2024-10-11 09:24:49',NULL,1),(20,'Vijay','vijay@gmail.com','user@123','4546789753','Pune',2,'2024-10-11 09:25:16','18','2024-10-11 09:25:16',NULL,1),(21,'vvvv','vvv','hyjt','3333','vvvv',1,'2024-10-11 11:23:51',NULL,'2024-10-11 11:26:38',NULL,1),(22,'random','ndjk@gmail.com','hnjjsnjkhwu',NULL,NULL,1,'2024-10-14 04:56:07',NULL,'2024-10-14 04:56:07',NULL,1),(23,'random','ndk@gmail.com','hnjjsnjkhwu',NULL,NULL,1,'2024-10-14 05:06:26',NULL,'2024-10-14 05:06:26',NULL,1),(24,'mahesh','mahesh@gmail.com','mahesh','2362773822','e3hdbbuisdcuiwd',2,'2024-10-14 09:56:34','18','2024-10-14 09:56:34',NULL,1),(25,'suresh','suresh@gmail.com','Suresh@123','1234567890','bgbnhgmj',2,'2024-10-14 09:57:32','18','2024-10-14 09:57:32',NULL,1);
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +243,7 @@ CREATE TABLE `tbl_user_firm` (
   `updated_by` varchar(50) DEFAULT NULL,
   `user_firm_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`uf_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,7 +252,7 @@ CREATE TABLE `tbl_user_firm` (
 
 LOCK TABLES `tbl_user_firm` WRITE;
 /*!40000 ALTER TABLE `tbl_user_firm` DISABLE KEYS */;
-INSERT INTO `tbl_user_firm` VALUES (51,45,30,'2024-10-11 09:18:20','45','2024-10-11 09:18:20',NULL,1),(52,18,31,'2024-10-11 09:20:47','18','2024-10-11 09:20:47',NULL,1),(53,18,32,'2024-10-11 09:21:51','18','2024-10-11 09:21:51',NULL,1),(54,19,31,'2024-10-11 09:24:49','18','2024-10-11 09:24:49',NULL,1),(55,19,32,'2024-10-11 09:24:49','18','2024-10-11 09:24:49',NULL,1),(56,20,31,'2024-10-11 09:25:16','18','2024-10-11 09:25:16',NULL,1);
+INSERT INTO `tbl_user_firm` VALUES (57,18,33,'2024-10-14 09:51:22','18','2024-10-14 09:51:22',NULL,1),(58,18,34,'2024-10-14 09:54:44','18','2024-10-14 09:54:44',NULL,1),(59,24,33,'2024-10-14 09:56:34','18','2024-10-14 09:56:34',NULL,1),(60,25,34,'2024-10-14 09:57:32','18','2024-10-14 09:57:32',NULL,1);
 /*!40000 ALTER TABLE `tbl_user_firm` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,6 +269,10 @@ CREATE TABLE `tbl_vouchers` (
   `v_amount` int DEFAULT NULL,
   `v_remark` varchar(255) DEFAULT NULL,
   `v_amount_type` varchar(45) DEFAULT NULL,
+  `v_from_firm_id` int DEFAULT NULL,
+  `v_to_firm_id` int DEFAULT NULL,
+  `v_from_ledger_id` int DEFAULT NULL,
+  `v_to_ledger_id` int DEFAULT NULL,
   `v_date` date DEFAULT NULL,
   `voucher_status` int NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -276,7 +280,7 @@ CREATE TABLE `tbl_vouchers` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`v_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,7 +289,7 @@ CREATE TABLE `tbl_vouchers` (
 
 LOCK TABLES `tbl_vouchers` WRITE;
 /*!40000 ALTER TABLE `tbl_vouchers` DISABLE KEYS */;
-INSERT INTO `tbl_vouchers` VALUES (49,'1',50000,'payment','CASH','2024-10-01',1,'2024-10-11 09:29:04','18','2024-10-11 09:29:04',NULL),(50,'2',50000,'receipt','CASH','2024-10-02',1,'2024-10-11 09:30:53','18','2024-10-11 09:30:53',NULL),(51,'1',8000,'payment','CASH','2024-10-11',1,'2024-10-11 11:44:53','19','2024-10-11 11:44:53',NULL);
+INSERT INTO `tbl_vouchers` VALUES (52,'1',5000,'done','CASH',33,34,15,16,'2024-10-15',1,'2024-10-14 09:58:11','18','2024-10-14 11:22:02',NULL),(53,'1',2000,'done','CASH',34,33,16,15,'2024-10-14',1,'2024-10-14 11:20:26','18','2024-10-14 11:20:26',NULL),(54,'1',500,'by','CASH',34,33,16,15,'2024-10-15',1,'2024-10-14 11:45:09','18','2024-10-14 11:45:09',NULL);
 /*!40000 ALTER TABLE `tbl_vouchers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1220,56 +1224,59 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetTransactionsFromFirmID`(
 
-    IN p_firm_id INT,           -- Firm ID
-    IN p_transaction_type INT    -- Transaction type
+
+
+    IN p_firm_id INT,  -- Input firm ID
+    IN p_var INT       -- 1 for payment, 2 for receipt
 )
 BEGIN
-    -- Select all distinct trans_v_id associated with the given firm ID and transaction type
-    SELECT 
-        MIN(trans1.trans_id) AS fromTransactionID,  -- Use aggregation function to select a single ID
-        trans1.trans_v_id AS fromVoucherID,
-        MIN(trans1.trans_lgr_id) AS fromLedgerID,    -- Use aggregation function
-        MIN(lgr1.lgr_name) AS fromLedgerName,         -- Use aggregation function
-        MIN(firm1.firm_name) AS fromFirmName,         -- Use aggregation function
-        MIN(trans1.trans_amt) AS fromAmount,          -- Use aggregation function for consistency
-        MIN(trans2.trans_id) AS toTransactionID,      -- Use aggregation function
-        trans2.trans_v_id AS toVoucherID,
-        MIN(trans2.trans_lgr_id) AS toLedgerID,       -- Use aggregation function
-        MIN(lgr2.lgr_name) AS toLedgerName,            -- Use aggregation function
-        MIN(firm2.firm_name) AS toFirmName,            -- Use aggregation function
-        MIN(trans2.trans_amt) AS toAmount,             -- Use aggregation function for consistency
-                MIN(trans1.created_at) AS Datetime  
-    FROM 
-        tbl_transactions trans1
-    JOIN 
-        tbl_ledger lgr1 ON trans1.trans_lgr_id = lgr1.lgr_id  -- Join with ledger for 'from' transaction
-    JOIN 
-        tbl_firm firm1 ON trans1.trans_firm_id = firm1.firm_id  -- Join with firm for 'from' transaction
-    JOIN 
-        tbl_transactions trans2 ON trans1.trans_v_id = trans2.trans_v_id AND trans1.trans_id != trans2.trans_id  -- Join to get all matching transactions
-    JOIN 
-        tbl_ledger lgr2 ON trans2.trans_lgr_id = lgr2.lgr_id  -- Join with ledger for 'to' transaction
-    JOIN 
-        tbl_firm firm2 ON trans2.trans_firm_id = firm2.firm_id  -- Join with firm for 'to' transaction
-    WHERE 
-        trans1.trans_firm_id = p_firm_id  -- Filter by the specified firm ID
-        AND trans1.trans_v_id IN (          -- Filter by transaction type
-            SELECT v_id 
-            FROM tbl_vouchers 
-            WHERE v_type = p_transaction_type
-        )
-        -- Show rows with negative fromAmount if p_transaction_type is 1
-        -- Show rows with positive fromAmount if p_transaction_type is 2
-        AND (
-            (p_transaction_type = 1 AND trans1.trans_amt < 0) OR
-            (p_transaction_type = 2 AND trans1.trans_amt > 0) OR
-            (p_transaction_type NOT IN (1, 2))  -- For other transaction types, no filtering on amount
-        )
-        AND trans1.trans_amt IS NOT NULL     -- Only show rows where fromAmount is not null
-    GROUP BY 
-        trans1.trans_v_id  -- Group by trans_v_id to get distinct results
-    ORDER BY 
-        trans1.trans_v_id, fromTransactionID;  -- Order by transaction type and ID
+    IF p_var = 1 THEN
+        -- For payments, match with v_from_firm_id
+        SELECT 
+            v.v_id AS VoucherID,
+            v.v_from_ledger_id AS FromLedgerID,
+            lf.lgr_name AS FromLedgerName,
+            f_from.firm_name AS FromFirmName,
+            v.v_to_ledger_id AS ToLedgerID,
+            lt.lgr_name AS ToLedgerName,
+            f_to.firm_name AS ToFirmName,
+            v.v_date AS TransactionDate,
+            
+            -- Use CASE to apply negative amount for payments
+               t1.trans_amt  AS Amount
+       
+        FROM tbl_vouchers v
+        JOIN tbl_firm f_from ON v.v_from_firm_id = f_from.firm_id
+        JOIN tbl_firm f_to ON v.v_to_firm_id = f_to.firm_id
+        JOIN tbl_ledger lf ON v.v_from_ledger_id = lf.lgr_id
+        JOIN tbl_ledger lt ON v.v_to_ledger_id = lt.lgr_id
+        JOIN tbl_transactions t1 ON t1.trans_v_id = v.v_id AND t1.trans_lgr_id = v.v_from_ledger_id
+        WHERE v.v_from_firm_id = p_firm_id;
+
+    ELSEIF p_var = 2 THEN
+        -- For receipts, match with v_to_firm_id
+        SELECT 
+            v.v_id AS VoucherID,
+            v.v_from_ledger_id AS FromLedgerID,
+            lf.lgr_name AS FromLedgerName,
+            f_from.firm_name AS FromFirmName,
+            v.v_to_ledger_id AS ToLedgerID,
+            lt.lgr_name AS ToLedgerName,
+            f_to.firm_name AS ToFirmName,
+            v.v_date AS TransactionDate,
+            
+            -- Use CASE to apply positive amount for receipts
+           t2.trans_amt AS Amount
+        FROM tbl_vouchers v
+        JOIN tbl_firm f_from ON v.v_from_firm_id = f_from.firm_id
+        JOIN tbl_firm f_to ON v.v_to_firm_id = f_to.firm_id
+        JOIN tbl_ledger lf ON v.v_from_ledger_id = lf.lgr_id
+        JOIN tbl_ledger lt ON v.v_to_ledger_id = lt.lgr_id
+        JOIN tbl_transactions t2 ON t2.trans_v_id = v.v_id AND t2.trans_lgr_id = v.v_to_ledger_id
+        WHERE v.v_to_firm_id = p_firm_id;
+
+    END IF;
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1729,8 +1736,8 @@ BEGIN
     WHERE lgr_id = p_ToLedgerId;
 
     -- Step 3: Insert the voucher details into tbl_vouchers
-    INSERT INTO tbl_vouchers (v_date, v_type, v_amount, created_by, v_remark, v_amount_type)
-    VALUES (p_Date, p_transaction_type, p_Amount, p_UserId, p_Remark, p_amount_type);
+    INSERT INTO tbl_vouchers (v_date, v_type, v_amount,v_from_firm_id,v_from_ledger_id,v_to_firm_id,v_to_ledger_id, created_by, v_remark, v_amount_type)
+    VALUES (p_Date, p_transaction_type, p_Amount, p_FromFirmId,p_FromLedgerId,p_ToFirmId,p_ToLedgerId,p_UserId, p_Remark, p_amount_type);
 
     -- Get the last inserted voucher ID
     SET newVoucherId = LAST_INSERT_ID();
@@ -1852,4 +1859,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-14 12:39:33
+-- Dump completed on 2024-10-14 17:45:23

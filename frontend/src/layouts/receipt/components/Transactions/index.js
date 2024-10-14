@@ -102,12 +102,12 @@ function Transactions() {
           ) : transactions.length > 0 ? (
             transactions.map((transaction) => (
               <PaymentHistory
-                key={transaction.fromVoucherID} // Use a unique key
-                color={transaction.fromAmount < 0 ? "error" : "success"} // Change color based on amount
-                icon={transaction.fromAmount < 0 ? "arrow_downward" : "arrow_upward"} // Change icon based on amount
-                name={`${transaction.fromFirmName} (${transaction.fromLedgerName}) to ${transaction.toFirmName} (${transaction.toLedgerName})`} // Display from/to Firm and Ledger names
-                description={`${new Date(transaction.Datetime).toLocaleString()}`} // Format date
-                value={`${transaction.fromAmount < 0 ? '-' : '+'} ₹${Math.abs(transaction.fromAmount).toFixed(2)}`} // Display formatted amount
+                key={transaction.VoucherID} // Use a unique key
+                color={transaction.Amount < 0 ? "error" : "success"} // Change color based on amount
+                icon={transaction.Amount < 0 ? "arrow_downward" : "arrow_upward"} // Change icon based on amount
+                name={`${transaction.FromFirmName} (${transaction.FromLedgerName}) to ${transaction.ToFirmName} (${transaction.ToLedgerName})`} // Display from/to Firm and Ledger names
+                description={`${new Date(transaction.TransactionDate).toLocaleString()}`} // Format date
+                value={`${transaction.Amount < 0 ? '-' : '+'} ₹${Math.abs(transaction.Amount).toFixed(2)}`} // Display formatted amount
               />
             ))
           ) : (
