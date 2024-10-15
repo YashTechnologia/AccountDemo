@@ -17,28 +17,31 @@ const getAllGeneralLedger = async (req, res) => {
     }
 }
 
-
-
 const AddLedger = async (req, res) => {
+    const { userId } = req.params;
+    const {
+        firmIds,       
+        ledgerName,    
+            
+        isExisting,     
+        glId,          
+        openingBalance, 
+        cashOrOnline,  
+    } = req.body;
+
+    if (!Array.isArray(firmIds) || firmIds.length === 0) {
+        return res.status(400).json({ error: 'Invalid input data.' });
+    }
+
+    const addQuery = `CALL AddLedger(?, ?, ?, ?, ?, ?,  ?)`;
+
     try {
-        const { firmId, ledgerName, glId, openingBalance, cashORonline } = req.body;
-        const { userId } = req.params;
-
-        const sql = `CALL AddLedger(?, ?, ?, ?, ?, ?)`;
-
-       
-        const results = await query(sql, [firmId, ledgerName, glId, openingBalance, cashORonline, userId]);
-
-        return res.status(201).json({ message: 'Ledger added successfully.' });
+        const AddLedgers = await query(addQuery, [JSON.stringify(firmIds), ledgerName, isExisting, glId, openingBalance, cashOrOnline, userId]);
+        res.status(200).json({ message: 'Ledger added successfully.', data: AddLedgers });
     } catch (error) {
-      
-        console.error('Error adding ledger:', error);
-        return res.status(400).json({ message: error.sqlMessage || 'An error occurred while adding the ledger.' });
+        res.status(500).json({ error: error.message });
     }
 };
-
-
-
 
 const GetAllLedgers = async (req, res) => {
     try {
@@ -58,8 +61,6 @@ const GetAllLedgers = async (req, res) => {
         return res.status(400).json({ message: error.sqlMessage || 'An error occurred while retrieving ledgers.' });
     }
 };
-
-
 
 const getLedgersByUserId = async (req, res) => {
     try {

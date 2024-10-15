@@ -66,7 +66,7 @@ CREATE TABLE `tbl_firm` (
   `updated_by` varchar(50) DEFAULT NULL,
   `firm_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`firm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +75,7 @@ CREATE TABLE `tbl_firm` (
 
 LOCK TABLES `tbl_firm` WRITE;
 /*!40000 ALTER TABLE `tbl_firm` DISABLE KEYS */;
-INSERT INTO `tbl_firm` VALUES (33,'ABC','abs@gmail.com','de24referf','dederf','2024-10-14 09:51:22','18','2024-10-14 09:51:22',NULL,1),(34,'xyz','xyz@gmail.com','fjerhue6454','wdekofkroepkg','2024-10-14 09:54:44','18','2024-10-14 09:54:44',NULL,1);
+INSERT INTO `tbl_firm` VALUES (33,'ABC','abs@gmail.com','de24referf','dederf','2024-10-14 09:51:22','18','2024-10-14 09:51:22',NULL,1),(34,'xyz','xyz@gmail.com','fjerhue6454','wdekofkroepkg','2024-10-14 09:54:44','18','2024-10-14 09:54:44',NULL,1),(35,'prt','prt@gmail.com','dferbg2343','weftyhyj','2024-10-15 05:27:06','18','2024-10-15 05:27:06',NULL,1);
 /*!40000 ALTER TABLE `tbl_firm` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `tbl_ledger` (
   `updated_by` varchar(50) DEFAULT NULL,
   `ledger_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`lgr_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `tbl_ledger` (
 
 LOCK TABLES `tbl_ledger` WRITE;
 /*!40000 ALTER TABLE `tbl_ledger` DISABLE KEYS */;
-INSERT INTO `tbl_ledger` VALUES (13,7,'Rupesh Khillare',992000.00,31,1,'2024-10-11 09:22:40','18','2024-10-11 11:44:53',NULL,1),(14,5,'Dilip Heda',2008000.00,32,0,'2024-10-11 09:23:41','18','2024-10-11 11:44:53',NULL,1),(15,2,'labc',22500.00,33,1,'2024-10-14 09:55:16','18','2024-10-14 11:45:09',NULL,1),(16,3,'lxyz',12500.00,34,0,'2024-10-14 09:55:33','18','2024-10-14 11:45:09',NULL,1);
+INSERT INTO `tbl_ledger` VALUES (13,7,'Rupesh Khillare',992000.00,31,1,'2024-10-11 09:22:40','18','2024-10-11 11:44:53',NULL,1),(14,5,'Dilip Heda',2008000.00,32,0,'2024-10-11 09:23:41','18','2024-10-11 11:44:53',NULL,1),(15,2,'labc',22800.00,33,1,'2024-10-14 09:55:16','18','2024-10-14 12:42:22',NULL,1),(16,3,'lxyz',12500.00,34,0,'2024-10-14 09:55:33','18','2024-10-14 11:45:09',NULL,1),(40,4,'fgnn',344.00,NULL,NULL,'2024-10-15 11:38:10','37','2024-10-15 11:38:10',NULL,1),(41,4,'fgnn',344.00,456,NULL,'2024-10-15 11:38:10','37','2024-10-15 11:38:10',NULL,1),(42,4,'fgnn',344.00,4,NULL,'2024-10-15 11:38:10','37','2024-10-15 11:38:10',NULL,1),(43,4,'fgnn',344.00,524,NULL,'2024-10-15 11:38:10','37','2024-10-15 11:38:10',NULL,1),(44,5,'new',100000.00,NULL,NULL,'2024-10-15 11:49:00','18','2024-10-15 11:49:00',NULL,1),(45,5,'new',100000.00,33,NULL,'2024-10-15 11:49:00','18','2024-10-15 11:49:00',NULL,1),(46,2,'lxyz',20154.00,33,NULL,'2024-10-15 11:49:29','18','2024-10-15 11:49:29',NULL,1),(47,2,'lxyz',20154.00,35,NULL,'2024-10-15 11:49:29','18','2024-10-15 11:49:29',NULL,1);
 /*!40000 ALTER TABLE `tbl_ledger` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +179,7 @@ CREATE TABLE `tbl_transactions` (
   `updated_by` varchar(50) DEFAULT NULL,
   `trans_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`trans_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +188,7 @@ CREATE TABLE `tbl_transactions` (
 
 LOCK TABLES `tbl_transactions` WRITE;
 /*!40000 ALTER TABLE `tbl_transactions` DISABLE KEYS */;
-INSERT INTO `tbl_transactions` VALUES (97,52,16,34,5000.00,'2024-10-14 09:58:11',NULL,'2024-10-14 09:58:11',NULL,1),(98,52,15,33,-5000.00,'2024-10-14 09:58:11',NULL,'2024-10-14 09:58:11',NULL,1),(99,53,15,33,2000.00,'2024-10-14 11:20:26',NULL,'2024-10-14 11:20:26',NULL,1),(100,53,16,34,-2000.00,'2024-10-14 11:20:26',NULL,'2024-10-14 11:20:26',NULL,1),(101,54,15,33,500.00,'2024-10-14 11:45:09',NULL,'2024-10-14 11:45:09',NULL,1),(102,54,16,34,-500.00,'2024-10-14 11:45:09',NULL,'2024-10-14 11:45:09',NULL,1);
+INSERT INTO `tbl_transactions` VALUES (97,52,16,34,5000.00,'2024-10-14 09:58:11',NULL,'2024-10-14 09:58:11',NULL,1),(98,52,15,33,-5000.00,'2024-10-14 09:58:11',NULL,'2024-10-14 09:58:11',NULL,1),(99,53,15,33,2000.00,'2024-10-14 11:20:26',NULL,'2024-10-14 11:20:26',NULL,1),(100,53,16,34,-2000.00,'2024-10-14 11:20:26',NULL,'2024-10-14 11:20:26',NULL,1),(101,54,15,33,500.00,'2024-10-14 11:45:09',NULL,'2024-10-14 11:45:09',NULL,1),(102,54,16,34,-500.00,'2024-10-14 11:45:09',NULL,'2024-10-14 11:45:09',NULL,1),(103,55,15,33,300.00,'2024-10-14 12:42:22',NULL,'2024-10-14 12:42:22',NULL,1),(104,55,15,33,-300.00,'2024-10-14 12:42:22',NULL,'2024-10-14 12:42:22',NULL,1);
 /*!40000 ALTER TABLE `tbl_transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +243,7 @@ CREATE TABLE `tbl_user_firm` (
   `updated_by` varchar(50) DEFAULT NULL,
   `user_firm_status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`uf_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,7 +252,7 @@ CREATE TABLE `tbl_user_firm` (
 
 LOCK TABLES `tbl_user_firm` WRITE;
 /*!40000 ALTER TABLE `tbl_user_firm` DISABLE KEYS */;
-INSERT INTO `tbl_user_firm` VALUES (57,18,33,'2024-10-14 09:51:22','18','2024-10-14 09:51:22',NULL,1),(58,18,34,'2024-10-14 09:54:44','18','2024-10-14 09:54:44',NULL,1),(59,24,33,'2024-10-14 09:56:34','18','2024-10-14 09:56:34',NULL,1),(60,25,34,'2024-10-14 09:57:32','18','2024-10-14 09:57:32',NULL,1);
+INSERT INTO `tbl_user_firm` VALUES (57,18,33,'2024-10-14 09:51:22','18','2024-10-14 09:51:22',NULL,1),(58,18,34,'2024-10-14 09:54:44','18','2024-10-14 09:54:44',NULL,1),(59,24,33,'2024-10-14 09:56:34','18','2024-10-14 09:56:34',NULL,1),(60,25,34,'2024-10-14 09:57:32','18','2024-10-14 09:57:32',NULL,1),(61,18,35,'2024-10-15 05:27:06','18','2024-10-15 05:27:06',NULL,1);
 /*!40000 ALTER TABLE `tbl_user_firm` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -280,7 +280,7 @@ CREATE TABLE `tbl_vouchers` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`v_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +289,7 @@ CREATE TABLE `tbl_vouchers` (
 
 LOCK TABLES `tbl_vouchers` WRITE;
 /*!40000 ALTER TABLE `tbl_vouchers` DISABLE KEYS */;
-INSERT INTO `tbl_vouchers` VALUES (52,'1',5000,'done','CASH',33,34,15,16,'2024-10-15',1,'2024-10-14 09:58:11','18','2024-10-14 11:22:02',NULL),(53,'1',2000,'done','CASH',34,33,16,15,'2024-10-14',1,'2024-10-14 11:20:26','18','2024-10-14 11:20:26',NULL),(54,'1',500,'by','CASH',34,33,16,15,'2024-10-15',1,'2024-10-14 11:45:09','18','2024-10-14 11:45:09',NULL);
+INSERT INTO `tbl_vouchers` VALUES (52,'1',5000,'done','CASH',33,34,15,16,'2024-10-15',1,'2024-10-14 09:58:11','18','2024-10-14 11:22:02',NULL),(53,'1',2000,'done','CASH',34,33,16,15,'2024-10-14',1,'2024-10-14 11:20:26','18','2024-10-14 11:20:26',NULL),(54,'1',500,'by','CASH',34,33,16,15,'2024-10-15',1,'2024-10-14 11:45:09','18','2024-10-14 11:45:09',NULL),(55,'1',300,'done','CASH',33,33,15,15,'2024-10-14',1,'2024-10-14 12:42:22','18','2024-10-14 12:42:22',NULL);
 /*!40000 ALTER TABLE `tbl_vouchers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,25 +358,70 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `AddLedger`(
-    IN p_firmId INT, 
-    IN p_ledgerName VARCHAR(255), 
+
+    IN p_firmIds JSON,         -- Array of firm IDs
+    IN p_ledgerName VARCHAR(255),
+ 
+    IN p_isExisting INT,       -- 1 for existing ledger, 0 for new ledger
     IN p_glId INT, 
-    IN p_openingBalance INT, 
+    IN p_openingBalance DECIMAL(10,2), 
     IN p_cashORonline INT,
-    IN p_userId INT  -- Specify the data type for p_userId
+    IN p_userId INT
 )
 BEGIN
+    DECLARE firmId INT;
+    DECLARE existingLedgerId INT;
 
-    -- Check if the ledger already exists for the given firm and user
-    IF EXISTS (SELECT 1 FROM tbl_ledger WHERE lgr_name = p_ledgerName  AND created_by = p_userId) THEN
-        SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = 'Ledger already exists for this firm and user.';
+    -- Case 1: For existing ledger (p_isExisting = 1)
+    IF p_isExisting = 1 THEN
+        -- Step 1: Check if the ledger with the given name already exists
+        SELECT lgr_id INTO existingLedgerId
+        FROM tbl_ledger
+        WHERE lgr_name = p_ledgerName
+        LIMIT 1;
+
+        -- If no ledger with that name is found, raise an error
+        IF existingLedgerId IS NULL THEN
+            SIGNAL SQLSTATE '45000' 
+            SET MESSAGE_TEXT = 'No ledger found with the given name.';
+        ELSE
+            -- Step 2: Iterate through the array of firm IDs
+            WHILE JSON_LENGTH(p_firmIds) > 0 DO
+                SET firmId = JSON_UNQUOTE(JSON_EXTRACT(p_firmIds, '$[0]')); -- Extract each firm ID
+                
+                -- Step 3: Check if this firm is already connected to the existing ledger
+                IF NOT EXISTS (SELECT 1 FROM tbl_ledger WHERE lgr_name = p_ledgerName AND lgr_firm_id = firmId) THEN
+                    -- Step 4: Insert a new row to connect the firm with the existing ledger
+                    INSERT INTO tbl_ledger (lgr_name, lgr_gl_id, lgr_op_balance, balance_type, lgr_firm_id, created_by)
+                    VALUES (p_ledgerName, p_glId, p_openingBalance, p_cashORonline, firmId, p_userId);
+                END IF;
+                
+                -- Step 5: Remove the processed firm ID from the array
+                SET p_firmIds = JSON_REMOVE(p_firmIds, '$[0]');
+            END WHILE;
+        END IF;
+
+    -- Case 2: For new ledger (p_isExisting = 0)
     ELSE
-        -- Insert the new ledger
-        INSERT INTO tbl_ledger (lgr_name, lgr_firm_id, lgr_gl_id, lgr_op_balance, balance_type, created_by)
-        VALUES (p_ledgerName, p_firmId, p_glId, p_openingBalance, p_cashORonline, p_userId);
-    END IF;
+        -- Step 1: Insert the new ledger
+        INSERT INTO tbl_ledger (lgr_name, lgr_gl_id, lgr_op_balance, balance_type, created_by)
+        VALUES (p_ledgerName, p_glId, p_openingBalance, p_cashORonline, p_userId);
+        
+        -- Get the newly created ledger ID
+        SET existingLedgerId = LAST_INSERT_ID();
 
+        -- Step 2: Iterate through the array of firm IDs and connect each to the new ledger
+        WHILE JSON_LENGTH(p_firmIds) > 0 DO
+            SET firmId = JSON_UNQUOTE(JSON_EXTRACT(p_firmIds, '$[0]')); -- Extract each firm ID
+
+            -- Step 3: Insert the ledger-firm connection for the new ledger
+            INSERT INTO tbl_ledger (lgr_name, lgr_gl_id, lgr_op_balance, balance_type, lgr_firm_id, created_by)
+            VALUES (p_ledgerName, p_glId, p_openingBalance, p_cashORonline, firmId, p_userId);
+            
+            -- Step 4: Remove the processed firm ID from the array
+            SET p_firmIds = JSON_REMOVE(p_firmIds, '$[0]');
+        END WHILE;
+    END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -760,8 +805,8 @@ BEGIN
     WHERE 
         l.created_by = userId AND l.ledger_status=1
     GROUP BY 
-        lgr_firm_id, lgr_name, lgr_id, lgr_gl_id, balance_type; -- Include other selected fields here
-
+        lgr_firm_id, lgr_name, lgr_id, lgr_gl_id, balance_type;
+        
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1224,8 +1269,6 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetTransactionsFromFirmID`(
 
-
-
     IN p_firm_id INT,  -- Input firm ID
     IN p_var INT       -- 1 for payment, 2 for receipt
 )
@@ -1234,16 +1277,19 @@ BEGIN
         -- For payments, match with v_from_firm_id
         SELECT 
             v.v_id AS VoucherID,
-            v.v_from_ledger_id AS FromLedgerID,
-            lf.lgr_name AS FromLedgerName,
-            f_from.firm_name AS FromFirmName,
+            v.v_from_ledger_id AS fromLedgerID,
+            MIN(lf.lgr_name) AS fromLedgerName,  -- Apply MIN() for non-grouped columns
+            MIN(f_from.firm_name) AS fromFirmName,
             v.v_to_ledger_id AS ToLedgerID,
-            lt.lgr_name AS ToLedgerName,
-            f_to.firm_name AS ToFirmName,
-            v.v_date AS TransactionDate,
+            MIN(lt.lgr_name) AS ToLedgerName,
+            MIN(f_to.firm_name) AS ToFirmName,
+            MIN(v.v_date) AS TransactionDate,
             
-            -- Use CASE to apply negative amount for payments
-               t1.trans_amt  AS Amount
+            -- Always apply negative amount for payments (p_var = 1)
+            CASE 
+                WHEN v.v_from_ledger_id = v.v_to_ledger_id THEN MIN(t1.trans_amt)  -- Same ledger, force negative
+                ELSE Min(t1.trans_amt)  -- Different ledger, still force negative
+            END AS Amount
        
         FROM tbl_vouchers v
         JOIN tbl_firm f_from ON v.v_from_firm_id = f_from.firm_id
@@ -1251,30 +1297,35 @@ BEGIN
         JOIN tbl_ledger lf ON v.v_from_ledger_id = lf.lgr_id
         JOIN tbl_ledger lt ON v.v_to_ledger_id = lt.lgr_id
         JOIN tbl_transactions t1 ON t1.trans_v_id = v.v_id AND t1.trans_lgr_id = v.v_from_ledger_id
-        WHERE v.v_from_firm_id = p_firm_id;
-
+        WHERE v.v_from_firm_id = p_firm_id
+        GROUP BY v.v_id, v.v_from_ledger_id, v.v_to_ledger_id;
+ 
     ELSEIF p_var = 2 THEN
         -- For receipts, match with v_to_firm_id
         SELECT 
             v.v_id AS VoucherID,
             v.v_from_ledger_id AS FromLedgerID,
-            lf.lgr_name AS FromLedgerName,
-            f_from.firm_name AS FromFirmName,
+            MIN(lf.lgr_name) AS FromLedgerName,
+            MIN(f_from.firm_name) AS FromFirmName,
             v.v_to_ledger_id AS ToLedgerID,
-            lt.lgr_name AS ToLedgerName,
-            f_to.firm_name AS ToFirmName,
-            v.v_date AS TransactionDate,
+            MIN(lt.lgr_name) AS ToLedgerName,
+            MIN(f_to.firm_name) AS ToFirmName,
+            MIN(v.v_date) AS TransactionDate,
             
-            -- Use CASE to apply positive amount for receipts
-           t2.trans_amt AS Amount
+            -- Always apply positive amount for receipts (p_var = 2)
+            CASE 
+                WHEN v.v_from_ledger_id = v.v_to_ledger_id THEN -MIN(t2.trans_amt)  -- Same ledger, keep positive
+                ELSE MIN(t2.trans_amt)  -- Different ledger, keep positive
+            END AS Amount
         FROM tbl_vouchers v
         JOIN tbl_firm f_from ON v.v_from_firm_id = f_from.firm_id
         JOIN tbl_firm f_to ON v.v_to_firm_id = f_to.firm_id
         JOIN tbl_ledger lf ON v.v_from_ledger_id = lf.lgr_id
         JOIN tbl_ledger lt ON v.v_to_ledger_id = lt.lgr_id
         JOIN tbl_transactions t2 ON t2.trans_v_id = v.v_id AND t2.trans_lgr_id = v.v_to_ledger_id
-        WHERE v.v_to_firm_id = p_firm_id;
-
+        WHERE v.v_to_firm_id = p_firm_id
+        GROUP BY v.v_id, v.v_from_ledger_id, v.v_to_ledger_id;
+ 
     END IF;
     
 END ;;
@@ -1859,4 +1910,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-14 17:45:23
+-- Dump completed on 2024-10-15 17:21:03
