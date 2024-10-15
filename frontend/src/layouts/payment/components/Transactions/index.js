@@ -105,7 +105,7 @@ function Transactions() {
                 key={transaction.VoucherID} // Use a unique key
                 color={transaction.Amount < 0 ? "error" : "success"} // Change color based on amount
                 icon={transaction.Amount < 0 ? "arrow_downward" : "arrow_upward"} // Change icon based on amount
-                name={`${transaction.FromFirmName} (${transaction.FromLedgerName}) to ${transaction.ToFirmName} (${transaction.ToLedgerName})`} // Display from/to Firm and Ledger names
+                name={`${transaction.fromFirmName} (${transaction.fromLedgerName}) to ${transaction.ToFirmName} (${transaction.ToLedgerName})`} // Display from/to Firm and Ledger names
                 description={`${new Date(transaction.TransactionDate).toLocaleString()}`} // Format date
                 value={`${transaction.Amount < 0 ? '-' : '+'} ₹${Math.abs(transaction.Amount).toFixed(2)}`} // Display formatted amount
               />
