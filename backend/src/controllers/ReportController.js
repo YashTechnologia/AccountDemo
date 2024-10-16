@@ -30,6 +30,43 @@ const GetCompleteReport = async (req, res) => {
 };
 
 
+// const GetCompleteReport = async (req, res) => {
+//     try {
+//         const { userId } = req.params;
+
+//         if (!userId) {
+//             return res.status(400).json({ message: 'Missing required parameters.' });
+//         }
+
+//         const sql = `CALL GetCompleteReportbyUserId(?)`;
+//         const result = await query(sql, [userId]);
+
+//         if (result[0].length === 0) {
+//             return res.status(404).json({ message: 'No transactions found for this user' });
+//         }
+
+//         // Format the transactionDate to `YYYY-MM-DD`
+//         const formattedResult = result[0].map(transaction => ({
+//             ...transaction,
+//             transactionDate: format(new Date(transaction.transactionDate), 'yyyy-MM-dd')
+//         }));
+
+//         return res.status(200).json(formattedResult);
+//     } catch (error) {
+//         console.error('Error retrieving transactions:', error);
+//         return res.status(500).json({ message: error.sqlMessage || 'An error occurred while retrieving transactions.' });
+//     }
+// };
+
+
+
+
+
+
+
+
+
+
 const getWeeklyAndDailyTransForAdmin = async (req, res) => {
     try {
         const {userId} = req.params; 

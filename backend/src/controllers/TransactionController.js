@@ -33,6 +33,8 @@ const Transactions = async (req, res) => {
         
         const { userId } = req.params;
 
+        console.log(date)
+
 
         if ( !date || !amount_type || !transaction_type || !amount || !remark || !from_ledger_id || !to_ledger_id || !userId || !from_firm_id || !to_firm_id ) 
             {
