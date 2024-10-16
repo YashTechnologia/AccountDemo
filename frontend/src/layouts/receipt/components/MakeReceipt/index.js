@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 
 import { getLedgerForTransaction, makePayment } from "api/apis";
 import { getUserLedger } from "api/apis";
+import ArgonDateTimePicker from "components/ArgonDateTimePicker";
 
 function MakeReceipt() {
   const [from, setFrom] = useState('');
@@ -90,7 +91,7 @@ function MakeReceipt() {
 
     if (paymentType === "cheque") {
       // Add cheque details if cheque is selected
-      paymentData.cheque_no = chequeNumber; 
+      paymentData.cheque_no = chequeNumber;
       paymentData.bank_name = bankName;
     }
 
@@ -157,12 +158,20 @@ function MakeReceipt() {
         </ArgonBox>
 
         {/* Date Field */}
-        <ArgonBox mb={2}>
+        {/* <ArgonBox mb={2}>
           <ArgonInput
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
             required
+            size="large"
+          />
+        </ArgonBox> */}
+
+        <ArgonBox mb={2}>
+          <ArgonDateTimePicker
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
             size="large"
           />
         </ArgonBox>

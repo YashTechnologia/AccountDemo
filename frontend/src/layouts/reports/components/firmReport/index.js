@@ -148,21 +148,23 @@ function FirmReport() {
     ];
 
     // Filter reports based on selected firm
-    const filteredReports = reports.filter(report => (report.fromFirmID === selectedFirm.value) || (report.toFirmID === selectedFirm.value));
+    const filteredReports = reports.filter(report => (report.reportEntry.fromFirmID === selectedFirm.value) || (report.reportEntry.toFirmID === selectedFirm.value));
 
-    // Map the filtered reports data to table rows
-    const rows = filteredReports.map(report => ({
-        from: `${report.fromFirmName} - ${report.fromLedgerName}`,
-        to: `${report.toFirmName} - ${report.toLedgerName}`,
-        amount: (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span>{report.fromAmount}</span>
-                <Icon color={report.fromAmount < 0 ? "error" : "success"} style={{ marginLeft: '5px' }}>
-                    {report.fromAmount < 0 ? "arrow_downward" : "arrow_upward"}
-                </Icon>
-            </div>
-        ),
-    }));
+    const rows = filteredReports.map(report => {
+        const entry = report.reportEntry; // Accessing the nested reportEntry
+        return {
+            from: `${entry.fromFirmName} - ${entry.fromLedgerName}`,
+            to: `${entry.toFirmName} - ${entry.toLedgerName}`,
+            amount: (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span>{entry.Amount}</span>
+                    <Icon color={entry.Amount < 0 ? "error" : "success"} style={{ marginLeft: '5px' }}>
+                        {entry.Amount < 0 ? "arrow_downward" : "arrow_upward"}
+                    </Icon>
+                </div>
+            ),
+        };
+    });
 
     return (
         <DashboardLayout>

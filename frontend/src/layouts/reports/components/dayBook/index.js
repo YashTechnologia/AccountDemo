@@ -54,28 +54,31 @@ function DayBook() {
 
     // Filter reports based on today's date and selected firm
     const filteredReports = reports.filter(report => {
-        const reportDate = new Date(report.transactionDate).toISOString().split('T')[0];
+        const reportDate = new Date(report.reportEntry.transactionDate).toISOString().split('T')[0];
         console.log('today', today, reportDate)
         const isToday = (reportDate === today);
         const isFirmSelected = selectedDay ? 
-            (report.fromFirmID === selectedDay.value || report.toFirmID === selectedDay.value) : true;
+            (report.reportEntry.fromFirmID === selectedDay.value || report.reportEntry.toFirmID === selectedDay.value) : true;
 
         return isToday && isFirmSelected;
     });
 
     // Map the filtered reports data to table rows
-    const rows = filteredReports.map(report => ({
-        from: `${report.fromFirmName} - ${report.fromLedgerName}`,
-        to: `${report.toFirmName} - ${report.toLedgerName}`,
-        amount: (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span>{report.fromAmount}</span>
-                <Icon color={report.fromAmount < 0 ? "error" : "success"} style={{ marginLeft: '5px' }}>
-                    {report.fromAmount < 0 ? "arrow_downward" : "arrow_upward"}
-                </Icon>
-            </div>
-        ),
-    }));
+    const rows = filteredReports.map(report => {
+        const entry = report.reportEntry; // Accessing the nested reportEntry
+        return {
+            from: `${entry.fromFirmName} - ${entry.fromLedgerName}`,
+            to: `${entry.toFirmName} - ${entry.toLedgerName}`,
+            amount: (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span>{entry.Amount}</span>
+                    <Icon color={entry.Amount < 0 ? "error" : "success"} style={{ marginLeft: '5px' }}>
+                        {entry.Amount < 0 ? "arrow_downward" : "arrow_upward"}
+                    </Icon>
+                </div>
+            ),
+        };
+    });
 
     return (
         <DashboardLayout>

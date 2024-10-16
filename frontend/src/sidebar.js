@@ -205,7 +205,7 @@ const sidebar = [
     name: "Payment",
     key: "payment",
     route: "/payment",
-    icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card" />,
+    icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-credit-card" />,
     component: <Payment />,
   },
   {
@@ -213,7 +213,7 @@ const sidebar = [
     name: "Receipt",
     key: "receipt",
     route: "/receipt",
-    icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-credit-card" />,
+    icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card" />,
     component: <Receipt />,
   },
   {

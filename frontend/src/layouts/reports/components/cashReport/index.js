@@ -52,25 +52,28 @@ function CashReport() {
     // Filter reports based on selected firm
     const filteredReports = selectedCash
         ? reports.filter(report => 
-            report.amountType === "CASH" && 
-            (`${report.fromFirmID}-${report.fromLedgerID}` === selectedCash.value || 
-             `${report.toFirmID}-${report.toLedgerID}` === selectedCash.value)
+            report.reportEntry.amountType === "CASH" && 
+            (`${report.reportEntry.fromFirmID}-${report.reportEntry.fromLedgerID}` === selectedCash.value || 
+             `${report.reportEntry.toFirmID}-${report.reportEntry.toLedgerID}` === selectedCash.value)
           )
-        : reports.filter(report => report.amountType === "CASH"); // Show all if no selection
+        : reports.filter(report => report.reportEntry.amountType === "CASH"); // Show all if no selection
 
     // Map the filtered reports data to table rows
-    const rows = filteredReports.map(report => ({
-        from: `${report.fromFirmName} - ${report.fromLedgerName}`,
-        to: `${report.toFirmName} - ${report.toLedgerName}`,
-        amount: (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span>{report.fromAmount}</span>
-                <Icon color={report.fromAmount < 0 ? "error" : "success"} style={{ marginLeft: '5px' }}>
-                    {report.fromAmount < 0 ? "arrow_downward" : "arrow_upward"}
-                </Icon>
-            </div>
-        ),
-    }));
+    const rows = filteredReports.map(report => {
+        const entry = report.reportEntry; // Accessing the nested reportEntry
+        return {
+            from: `${entry.fromFirmName} - ${entry.fromLedgerName}`,
+            to: `${entry.toFirmName} - ${entry.toLedgerName}`,
+            amount: (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span>{entry.Amount}</span>
+                    <Icon color={entry.Amount < 0 ? "error" : "success"} style={{ marginLeft: '5px' }}>
+                        {entry.Amount < 0 ? "arrow_downward" : "arrow_upward"}
+                    </Icon>
+                </div>
+            ),
+        };
+    });
 
     return (
         <DashboardLayout>

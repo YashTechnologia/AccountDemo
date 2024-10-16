@@ -242,7 +242,7 @@ export const getCompleteReport = async () => {
     console.log('user', userId) 
     try {
         const response = await axios.get(`${apiUrl}/Get_Complete_Report/${userId}`);
-        console.log('Fetched complete report:', response);
+        console.log('Fetched complete report:', response.data);
         return response.data; 
     } catch (error) {
         console.error('Error fetching complete report:', error);

@@ -17,6 +17,7 @@ import ArgonSelect from "components/ArgonSelect";
 import { useEffect, useState } from "react";
 
 import { getLedgerForTransaction, getUserLedger, makePayment } from "api/apis";
+import ArgonDateTimePicker from "components/ArgonDateTimePicker";
 
 function MakePayment() {
   const [from, setFrom] = useState('');
@@ -75,8 +76,10 @@ function MakePayment() {
     const [fromFirmId, fromLedgerId] = from.value.split("-");
     const [toFirmId, toLedgerId] = to.value.split("-");
 
+    const formattedDate = new Date(date).toISOString().slice(0, 16).replace("T", " ");
+
     const paymentData = {
-      date,
+      date: formattedDate,
       amount_type: paymentType === "cash" ? "CASH" : "CHEQUE", // 1: Cash, 2: Cheque
       transaction_type: "1",
       amount: parseFloat(amount),
@@ -89,7 +92,7 @@ function MakePayment() {
 
     if (paymentType === "cheque") {
       // Add cheque details if cheque is selected
-      paymentData.cheque_no = chequeNumber; 
+      paymentData.cheque_no = chequeNumber;
       paymentData.bank_name = bankName;
     }
 
@@ -157,11 +160,17 @@ function MakePayment() {
 
         {/* Date Field */}
         <ArgonBox mb={2}>
-          <ArgonInput
+          {/* <ArgonInput
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
             required
+            size="large"
+          /> */}
+          <ArgonDateTimePicker
+            // label="Select Date and Time"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
             size="large"
           />
         </ArgonBox>
