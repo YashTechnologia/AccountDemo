@@ -21,13 +21,14 @@ const AddLedger = async (req, res) => {
     const { userId } = req.params;
     const {
         firmIds,       
-        ledgerName,    
-            
+        ledgerName,        
         isExisting,     
         glId,          
         openingBalance, 
         cashOrOnline,  
     } = req.body;
+
+    console.log( cashOrOnline )
 
     if (!Array.isArray(firmIds) || firmIds.length === 0) {
         return res.status(400).json({ error: 'Invalid input data.' });
@@ -126,21 +127,6 @@ console.log(result)
         return res.status(400).json({ message: error.sqlMessage || 'An error occurred while deleting the ledger.' });
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
