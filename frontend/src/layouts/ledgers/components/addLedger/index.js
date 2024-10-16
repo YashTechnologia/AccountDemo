@@ -420,7 +420,7 @@ function AddLedger() {
       isExisting: exist === "yes" ? 1 : 0,
       ledgerName: exist === "yes" ? selectedLedger?.value : ledgerName,
       openingBalance,
-      cashORonline: isCash ? 1 : 0,
+      cashOrOnline: isCash ? 1 : 0,
     };
 
     addLedger(data);

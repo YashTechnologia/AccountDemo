@@ -3,6 +3,19 @@
 import axios from "axios";
 import { apiUrl } from "api/apiUrl";
 
+// // Helper function to fetch user ID from cache
+// const getUserIdFromCache = async () => {
+//     const cache = await caches.open('authCache');
+//     const cachedResponse = await cache.match('authData');
+//     if (cachedResponse) {
+//         const data = await cachedResponse.json();
+//         return data.userId;
+//     }
+//     return null; // Return null if not found in cache
+// };
+
+// const userId = await getUserIdFromCache(); // Fetch user ID from cache
+
 // Register
 export const Register = async (name, email, password) => {
     console.log('Registering with:', name, email, password);

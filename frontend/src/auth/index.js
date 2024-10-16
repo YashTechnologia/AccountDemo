@@ -81,3 +81,60 @@ class Auth {
 }
 
 export { Auth, http };
+
+
+// import axios from 'axios';
+// import { apiUrl } from 'api/apiUrl';
+
+// const http = axios.create({
+//   baseURL: `${apiUrl}`,
+// });
+
+// class Auth {
+//   static async isAuthenticated() {
+//     const cache = await caches.open('authCache');
+//     const cachedResponse = await cache.match('authData');
+//     return cachedResponse !== undefined;
+//   }
+
+//   static async getUserRole() {
+//     const cache = await caches.open('authCache');
+//     const cachedResponse = await cache.match('authData');
+//     if (cachedResponse) {
+//       const data = await cachedResponse.json();
+//       return data.roleId;
+//     }
+//     return null;
+//   }
+
+//   static async getUserId() {
+//     const cache = await caches.open('authCache');
+//     const cachedResponse = await cache.match('authData');
+//     if (cachedResponse) {
+//       const data = await cachedResponse.json();
+//       return data.userId;
+//     }
+//     return null;
+//   }
+
+//   static async login(token, roleId, userId = {}) {
+//     console.log('toauth', token, roleId, userId);
+//     const cache = await caches.open('authCache');
+
+//     // Store the authentication data in the cache
+//     const authData = { token, roleId, userId };
+//     await cache.put('authData', new Response(JSON.stringify(authData)));
+
+//     // Log user ID and role ID immediately after login
+//     console.log('User ID after login:', userId);
+//     console.log('Role ID after login:', roleId);
+//   }
+
+//   static async logout() {
+//     const cache = await caches.open('authCache');
+//     await cache.delete('authData');
+//     console.log('Logged out. User ID:', await this.getUserId(), 'Role ID:', await this.getUserRole());
+//   }
+// }
+
+// export { Auth, http };
