@@ -7,7 +7,7 @@ import{getAllGeneralLedger,AddLedger,GetAllLedgers,EditLedger,DeleteLedger,getLe
 
 import{GetAllLedgersByUserId,Transactions,GetTransactionsFromFirmID} from '../controllers/TransactionController.js'
 
-import{GetCompleteReport,getWeeklyAndDailyTransForAdmin,getWeeklyAndDailyTransForUser,getFirmWiseTransactionsForAdmin,getFirmWiseTransactionsForUser} from '../controllers/ReportController.js'
+import{GetCompleteReport,getWeeklyAndDailyTransForAdmin,getWeeklyAndDailyTransForUser,getFirmWiseTransactionsForAdmin,getFirmWiseTransactionsForUser,GetCompleteReportForuser} from '../controllers/ReportController.js'
 
 const router = express.Router();
 
@@ -69,6 +69,11 @@ router.get('/Get_Transactions_From_Firm/:firm_id/:transaction_type', GetTransact
 
 
 router.get('/Get_Complete_Report/:userId', GetCompleteReport);
+
+
+router.get('/Get_Complete_Report_For_User/:userId', GetCompleteReportForuser);
+
+
 
 router.get('/Get_WeeklyDaily_Trans_For_Admin/:userId', getWeeklyAndDailyTransForAdmin);
 

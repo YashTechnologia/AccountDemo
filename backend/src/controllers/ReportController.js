@@ -30,6 +30,55 @@ const GetCompleteReport = async (req, res) => {
 };
 
 
+const GetCompleteReportForuser = async (req, res) => {
+    try {
+      
+        const { userId } = req.params;
+
+        if (!userId ) {
+            return res.status(400).json({ message: 'Missing required parameters.' });
+        }
+
+        const sql = `CALL GetCompleteReportForUser(?)`;
+    
+        const result = await query(sql, [userId]);
+
+        console.log('r',result)
+
+        if (result[0].length === 0) {
+            return res.status(404).json({ message: 'No transactions found for this user' });
+        }
+
+        return res.status(200).json(result[0]);
+    } catch (error) {
+        console.error('Error retrieving transactions:', error);
+
+        return res.status(500).json({ message: error.sqlMessage || 'An error occurred while retrieving transactions.' });
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const getWeeklyAndDailyTransForAdmin = async (req, res) => {
     try {
         const {userId} = req.params; 
@@ -120,5 +169,4 @@ const getFirmWiseTransactionsForUser  = async (req, res) => {
 };
 
 
-
-export{GetCompleteReport,getWeeklyAndDailyTransForAdmin,getWeeklyAndDailyTransForUser,getFirmWiseTransactionsForAdmin,getFirmWiseTransactionsForUser}
+export{GetCompleteReport,GetCompleteReportForuser,getWeeklyAndDailyTransForAdmin,getWeeklyAndDailyTransForUser,getFirmWiseTransactionsForAdmin,getFirmWiseTransactionsForUser}
